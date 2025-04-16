@@ -1,0 +1,14 @@
+services:
+  mutt:
+    container_name: mutt
+    build: .
+    volumes:
+      - ./muttrc:/muttrc:ro
+      - /path/to/mail:/mail
+    ports:
+      - 7681:7681
+    environment:
+      - USERNAME=user
+      - PASSWORD=changeme
+    restart: unless-stopped
+
